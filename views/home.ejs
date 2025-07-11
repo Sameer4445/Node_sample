@@ -1,0 +1,20 @@
+<%- include('partials/head') %>
+</head>
+
+  <%- include('partials/nav') %>
+  <div class="bg-white rounded-xl shadow-lg p-10 flex flex-col items-center space-y-6">
+    <h1 class="text-3xl font-bold text-purple-700">Welcome to Home</h1>
+    <a href="/get-home" class="px-6 py-2 bg-purple-600 text-white rounded-full text-lg font-semibold shadow hover:bg-purple-700 transition">
+      Register Now
+    </a>
+    <h2 class="text-xl font-semibold text-purple-800 mt-4">Here are our registered Names :</h2>
+    <ul class="w-full max-w-xs space-y-2 mt-2">
+      <% names.forEach(name => { %>
+        <li class="px-4 py-2 bg-purple-100 text-purple-800 shadow-sm border border-purple-800 hover:bg-purple-800 transition-colors text-center">
+          <%= name.username %>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</body>
+</html>
