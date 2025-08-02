@@ -8,13 +8,18 @@
       Register Now
     </a>
     <h2 class="text-xl font-semibold text-purple-800 mt-4">Here are our registered Homes :</h2>
-    <ul class="w-full max-w-xs flex flex-col gap-4 px-5 py-5 m-5">
+    <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-5 py-5 m-5">
       <% names.forEach(name => { %>
-        <li class="px-6 py-2 bg-purple-600 text-white rounded-full text-lg font-semibold shadow hover:bg-purple-700 transition flex justify-center text-center">
-          <%= name.username %>
-        </li>
+        <div class="bg-white border border-purple-200 shadow-lg rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-purple-400">
+          <div class="font-bold text-2xl text-purple-800 mb-2"><%= name.username %></div>
+          <div class="text-sm text-gray-700 mb-1"><span class="font-semibold">Location:</span> <%= name.location %></div>
+          <div class="text-sm text-gray-700 mb-1"><span class="font-semibold">Price:</span> <%= name.price %></div>
+          <% if (name.image) { %>
+            <img src="<%= name.image %>" alt="Home Image" class="mx-auto mt-3 max-h-40 rounded shadow" />
+          <% } %>
+        </div>
       <% }) %>
-    </ul>
+    </div>
   </div>
 </body>
 </html>
