@@ -8,15 +8,28 @@
       Register Now
     </a>
     <h2 class="text-xl font-semibold text-purple-800 mt-4">Here are our registered Homes :</h2>
-    <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-5 py-5 m-5">
+    <div class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 py-10 m-auto">
       <% names.forEach(name => { %>
-        <div class="bg-white border border-purple-200 shadow-lg rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-purple-400">
-          <div class="font-bold text-2xl text-purple-800 mb-2"><%= name.username %></div>
-          <div class="text-sm text-gray-700 mb-1"><span class="font-semibold">Location:</span> <%= name.location %></div>
-          <div class="text-sm text-gray-700 mb-1"><span class="font-semibold">Price:</span> <%= name.price %></div>
-          <% if (name.image) { %>
-            <img src="<%= name.image %>" alt="Home Image" class="mx-auto mt-3 max-h-40 rounded shadow" />
-          <% } %>
+        <div class="bg-gray-900 rounded-xl shadow-2xl overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105 hover:shadow-purple-400/50">
+          <div class="relative h-48 w-full flex items-center justify-center bg-gray-800">
+            <% if (name.image) { %>
+              <img src="<%= name.image %>" alt="Home Image" class="object-cover w-full h-full opacity-80" />
+            <% } else { %>
+              <span class="text-gray-500 text-xl"></span>
+            <% } %>
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="font-bold text-2xl text-white mb-2"><%= name.username %></div>
+              <% if (name.location) { %>
+                <div class="text-base text-purple-200 mb-1"><span class="font-semibold">Location:</span> <%= name.location %></div>
+              <% } %>
+              <% if (name.price) { %>
+                <div class="text-base text-purple-200 mb-1"><span class="font-semibold">Price:</span> <%= name.price %></div>
+              <% } %>
+            </div>
+          </div>
         </div>
       <% }) %>
     </div>
