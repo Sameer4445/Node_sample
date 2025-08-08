@@ -29,6 +29,6 @@ homeRouter.get("/", (req, res, next) => {
   res.render('home', { names,pageTitle: 'Home' });
 });
 
-app.listen(3001,()=>{
-  console.log(`server is running on port http://localhost:${3001}`);
+app.listen(3002,()=>{
+  console.log(`server is running on port http://localhost:${3002}`);
 })
