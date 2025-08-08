@@ -7,11 +7,13 @@ var app = express();
 const names=[];
 
 submitted.post("/get-home",(req,res,next)=>{
+  names.push({
+    username: req.body.username,
+    location: req.body.location,
+    price: req.body.price,
+    image: req.body.image
+  });
   res.render('submitted',{pageTitle : 'Submitted'});
-  console.log('Name Entered :',req.body.username);
-  names.push({username:req.body.username});
-  names.push({location:req.body.location});
-  names.push({price:req.body.price});
 });
 
 exports.submitted=submitted;
