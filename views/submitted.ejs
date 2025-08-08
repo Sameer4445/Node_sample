@@ -1,11 +1,30 @@
 <%- include('partials/head') %>
-</head>
-
-  <%- include('partials/nav') %>
-  <div class="bg-white rounded-xl shadow-lg p-10 flex flex-col items-center space-y-6">
-    <h1 class="text-3xl font-bold text-purple-700">Your details have been submitted successfully!</h1>
-    <p class="text-lg text-gray-700">Thank you for your submission.</p>
-    <a href="/" class="text-blue-500 hover:underline">Go to home</a>
-  </div>
-</body>
+  </head>
+  <style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-out;
+    }
+  </style>
+  <body class="bg-gray-50 font-sans">
+    <%- include('partials/nav') %>
+      <div class="min-h-screen flex items-center justify-center">
+        <div class="bg-white p-10 rounded-lg shadow-xl text-center fade-in">
+          <h1 class="text-4xl font-bold text-purple-600 mb-4">Submission Successful!</h1>
+          <p class="text-gray-700 text-lg mb-6">Thank you for registering your home with us.</p>
+          <a href="/" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full transition-transform transform hover:scale-105 shadow-lg">
+            Back to Home
+          </a>
+        </div>
+      </div>
+  </body>
 </html>
