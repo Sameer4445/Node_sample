@@ -1,37 +1,48 @@
 <%- include('partials/head') %>
 </head>
-
+<body class="bg-gray-50 font-sans">
   <%- include('partials/nav') %>
-  <div class="bg-white rounded-xl shadow-lg p-10 flex flex-col items-center space-y-6">
-    <h1 class="text-3xl font-bold text-purple-700">Welcome to airbnb </h1>
-    <a href="/get-home" class="px-6 py-2 bg-purple-600 text-white rounded-full text-lg font-semibold shadow hover:bg-purple-700 transition">
-      Register Now
-    </a>
-    <h2 class="text-xl font-semibold text-purple-800 mt-4">Here are our registered Homes :</h2>
-    <div class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 py-10 m-auto">
-      <% names.forEach(name => { %>
-        <div class="bg-gray-900 rounded-xl shadow-2xl overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105 hover:shadow-purple-400/50">
-          <div class="relative h-48 w-full flex items-center justify-center bg-gray-800">
-            <% if (name.image) { %>
-              <img src="<%= name.image %>" alt="Home Image" class="object-cover w-full h-full opacity-80" />
-            <% } else { %>
-              <span class="text-gray-500 text-xl"></span>
-            <% } %>
-            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-          </div>
-          <div class="p-6 flex-1 flex flex-col justify-between">
-            <div>
-              <div class="font-bold text-2xl text-white mb-2"><%= name.username %></div>
-              <% if (name.location) { %>
-                <div class="text-base text-purple-200 mb-1"><span class="font-semibold">Location:</span> <%= name.location %></div>
-              <% } %>
-              <% if (name.price) { %>
-                <div class="text-base text-purple-200 mb-1"><span class="font-semibold">Price:</span> <%= name.price %></div>
-              <% } %>
-            </div>
-          </div>
+
+  <div class="container mx-auto px-4 py-8 min-h-screen flex flex-col items-center">
+    <!-- Hero Section -->
+    <div class="text-center mb-12 w-full flex flex-col items-center">
+      <h1 class="text-5xl font-extrabold text-black mb-4">Welcome to Airbnb</h1>
+      <p class="text-lg text-gray-600 mb-6">Find your perfect home away from home.</p>
+      <a href="/get-home"
+         class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-10 rounded-full shadow-lg transition-transform transform hover:scale-105 mb-2">
+        Register Your Home
+      </a>
+    </div>
+
+    <!-- Available Homes Section -->
+    <h2 class="text-3xl font-bold text-purple-700 mb-8 text-center">Available Homes</h2>
+
+<div class="w-full max-w-screen-xl mx-auto px-4 py-8">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <% names.forEach(name => { %>
+      <div class="bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-transform duration-300 hover:-translate-y-2">
+        <% if (name.image) { %>
+          <img src="<%= name.image %>" alt="Home Image" class="w-full h-64 object-cover">
+        <% } %>
+        <div class="p-6 flex flex-col items-center text-center">
+          <h3 class="text-2xl font-bold text-purple-800 mb-3"><%= name.username %></h3>
+          
+          <% if (name.location) { %>
+            <p class="text-gray-600 mb-2">
+              <span class="font-semibold">Location:</span> <%= name.location %>
+            </p>
+          <% } %>
+          
+          <% if (name.price) { %>
+            <p class="text-gray-600 font-semibold">
+              Price: <%= name.price %>
+            </p>
+          <% } %>
         </div>
-      <% }) %>
+      </div>
+    <% }) %>
+
+
     </div>
   </div>
 </body>
